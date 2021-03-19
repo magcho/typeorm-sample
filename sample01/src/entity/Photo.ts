@@ -1,7 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
+import { PhotoMetadata } from "./PhotoMetadata";
 @Entity()
 export class Photo {
+  @OneToOne((type) => PhotoMetadata, (photoMetadata) => photoMetadata.photo)
+  metadata: PhotoMetadata;
+
   @PrimaryGeneratedColumn()
   readonly id: number;
 

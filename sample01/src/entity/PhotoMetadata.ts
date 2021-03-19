@@ -12,7 +12,7 @@ export class PhotoMetadata {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
-  @OneToOne((type) => Photo)
+  @OneToOne((type) => Photo, (photo) => photo.metadata)
   @JoinColumn()
   photo: Photo;
 
