@@ -29,14 +29,16 @@ createConnection()
     //   await photoRepository.save(photo);
     // }
 
-    const photo = new Photo();
-    photo.name = "sample";
-    photo.description = "説明文";
-    photo.filename = `sample.jpg`;
-    photo.views = Math.random() * 10000;
-    photo.isPublished = false;
+    // const photo = new Photo();
+    // photo.name = "sample";
+    // photo.description = "説明文";
+    // photo.filename = `sample.jpg`;
+    // photo.views = Math.random() * 10000;
+    // photo.isPublished = false;
 
-    await photoRepository.save(photo);
+    // await photoRepository.save(photo);
+
+    const photo = await photoRepository.findOne({ id: 200 });
 
     const photoMetadataRepository = connection.getRepository(PhotoMetadata);
 
