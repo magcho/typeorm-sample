@@ -24,9 +24,12 @@ createConnection()
     await user1.save();
 
     const user2 = await User.findOne({ id: 2 });
-    const photo1 = new Photo();
-    photo1.title = "写真タイトル";
-    photo1.user = user2;
-    photo1.save();
+    // const photo1 = new Photo();
+    // photo1.title = "写真タイトル";
+    // photo1.user = user2;
+    // photo1.save();
+
+    const photo1 = await Photo.findOne({ user: user2 });
+    console.log(photo1);
   })
   .catch((error) => console.log(error));
